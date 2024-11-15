@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text, Image, FlatList, RefreshControl } from 'react-native';
 
-class Mytips extends React.Component {
+class MyComponent extends React.Component {
   render() {
     const { imgSrc, header, text } = this.props;
     return (
@@ -19,9 +19,9 @@ class Mytips extends React.Component {
 };
 
 const DATA = [
-  { imgSrc: require('@/assets/images/jspng.jpg'), header: 'JavaScript', text: 'Заканчиваю курс по JavaScript.' },
-  { imgSrc: require('@/assets/images/java.png'), header: 'java', text: 'На середине курса по Java.' },
-  { imgSrc: require('@/assets/images/python.png'), header: 'Python', text: 'Никогда не изучал, вообще не изучал.' },
+  { imgSrc: require('@/assets/images/java.png'), header: 'Java', text: 'Прошёл курс по Java на Хекслет.' },
+  { imgSrc: require('@/assets/images/jspng.jpg'), header: 'JavaScript', text: 'Заканчиваю курс по JavaScript на Хекслет.' },
+  { imgSrc: require('@/assets/images/pyton.png'), header: 'Python', text: 'Никогда не изучал Вооообще.' },
 ];
 
 export default () => {
@@ -40,37 +40,38 @@ export default () => {
         <Text style={styles.header}>Pull down to see RefreshControl indicator.</Text>
       }
       data={DATA}
-      renderItem={({item}) => <Mytips imgSrc={item.imgSrc} header={item.header} text={item.text}/>}
+      renderItem={({item}) => <MyComponent imgSrc={item.imgSrc} header={item.header} text={item.text}/>}
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }>
     </FlatList>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
   view: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    flex: 1,
   },
   header: {
     fontSize: 20,
-    fontStyle: 'italic',
     textAlign: 'center',
+    fontStyle: 'italic',
   },
   languageHeader: {
-    fontSize: 66,
+    fontSize: 60,
   },
   text: {
     fontSize: 24,
   },
   logo: {
-    height: 350,
-    width: 350,
+    height: 360,
+    width: 500,
     bottom: 0,
     left: 0,
   },
